@@ -46,6 +46,13 @@ class CardsContainerWidget(QWidget):
         for card in self._cards:
             if card.title == card_clicked_title:
                 print(f"{card_clicked_title} clicked!!")
+                if card.clicked_flag:
+                    card.restart_position()
+                    card.clicked_flag = False
+                else:
+                    card.clicked_flag = True
+
+                
             else:
                 card.restart_position()
                 card.clicked_flag = False
